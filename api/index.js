@@ -113,8 +113,6 @@ app.post('/post', async (req,res) => {
 
 app.put('/post', async (req, res) => {
   const { token } = req.cookies;
-
-  console.log("Hey My name is cokkies Your name is ?", token)
   if (!token) {
     return res.status(401).json({ error: 'Token is missing' });
   }
