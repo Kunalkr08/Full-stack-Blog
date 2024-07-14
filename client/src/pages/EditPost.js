@@ -17,7 +17,7 @@ export default function EditPost() {
 
   // Fetch post data when id changes
   useEffect(() => {
-    fetch('http://localhost:4000/post/' + id)
+    fetch('https://full-stack-blog-roan.vercel.app/post/' + id)
       .then(response => response.json())
       .then(postInfo => {
         setData({
@@ -62,7 +62,7 @@ export default function EditPost() {
   // Function to update post
   async function updatePost(ev) {
     ev.preventDefault();
-    const response = await fetch('http://localhost:4000/post', {
+    const response = await fetch('https://full-stack-blog-roan.vercel.app/post', {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

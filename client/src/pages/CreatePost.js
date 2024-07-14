@@ -42,7 +42,7 @@ export default function CreatePost() {
   
   async function createNewPost(ev) {
     ev.preventDefault();
-    const response = await fetch('http://localhost:4000/post', {
+    const response = await fetch('https://full-stack-blog-roan.vercel.app/post', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
