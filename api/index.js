@@ -66,6 +66,7 @@ app.post('/login', async (req,res) => {
       res.cookie('token', token).json({
         id:userDoc._id,
         username,
+        sameSite : 'None'
       });
     });
   } 
@@ -83,7 +84,7 @@ app.get('/profile', (req,res) => {
 });
 
 app.post('/logout', (req,res) => {
-  res.cookie('token', '').json('ok');
+  res.cookie('token', {sameSite : 'None'}, '').json('ok');
 });
 
 app.post('/post', async (req,res) => {
