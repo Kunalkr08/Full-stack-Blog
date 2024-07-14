@@ -14,9 +14,7 @@ export default function EditPost() {
     Image: ""
   });
   const [redirect, setRedirect] = useState(false);
- 
-  console.log("data", data)
-  console.log('idddddeeee', id)
+
   // Fetch post data when id changes
   useEffect(() => {
     fetch('http://localhost:4000/post/' + id)
@@ -60,7 +58,6 @@ export default function EditPost() {
     }));
   };
 
-  //console.log('dataddddddddddddddddddddddddddddddddddddd', data.title)
 
   // Function to update post
   async function updatePost(ev) {

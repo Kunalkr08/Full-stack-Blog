@@ -93,7 +93,6 @@ app.post('/post', async (req,res) => {
   jwt.verify(token, secret, {}, async (err,info) => {
     if (err) throw err;
     const {title,summary,content,Image} = req?.body;
-    console.log("Data", title, summary, content, Image);
     const postDoc = await Post.create({
       title,
       summary,
