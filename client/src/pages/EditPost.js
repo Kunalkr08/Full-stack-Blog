@@ -62,7 +62,6 @@ export default function EditPost() {
   // Function to update post
   async function updatePost(ev) {
     ev.preventDefault();
-    console.log("data found", data);
     const response = await fetch('http://localhost:4000/post', {
       method: 'PUT',
       headers: {
