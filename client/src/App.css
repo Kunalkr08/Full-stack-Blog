@@ -98,8 +98,9 @@ form.login h1, form.register h1{
   text-align: center;
 }
 
-div.post-page div.image{
-  max-height:300px;
+div.post div.image{
+  max-height:200px;
+  max-width:300px;
   display: flex;
   overflow:hidden;
 }
