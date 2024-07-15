@@ -88,7 +88,12 @@ app.get('/profile', (req,res) => {
 });
 
 app.post('/logout', (req,res) => {
-  res.cookie('token', '').json('ok');
+  const tokenOption = {
+        httpOnly : true,
+        secure : true,
+        sameSite : 'None'
+  }
+  res.cookie('token', token, tokenOption).json('ok');
 });
 
 app.post('/post', async (req,res) => {
