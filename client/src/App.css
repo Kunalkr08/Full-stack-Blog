@@ -105,6 +105,8 @@ div.post div.image{
   overflow:hidden;
 }
 div.post-page div.image img{
+  min-height: 200px;
+  min-width: 300px;
   object-fit: cover;
   object-position: center;
   width: 100%;
