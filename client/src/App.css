@@ -104,7 +104,7 @@ div.post div.image{
   display: flex;
   overflow:hidden;
 }
-div.post-page div.image img{
+div.post div.image img{
   min-height: 200px;
   min-width: 300px;
   object-fit: cover;
