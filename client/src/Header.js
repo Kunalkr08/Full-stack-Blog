@@ -31,6 +31,7 @@ export default function Header() {
         {username && (
           <>
             <Link to="/create">Create new post</Link>
+            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a onClick={logout}>Logout</a>
           </>
         )}
