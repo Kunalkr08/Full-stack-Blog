@@ -11,9 +11,10 @@ export default function Post({_id,title,summary,cover,createdAt,author}) {
       </div>
       <div className="texts">
         <Link to={`/post/${_id}`}>
-        <h2>{title}</h2>
+        <h2 style={{ fontSize: '1.5rem' }}>{title}</h2>
         </Link>
         <p className="info">
+          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <a className="author">{author.username}</a>
           <time>{formatISO9075(new Date(createdAt))}</time>
         </p>

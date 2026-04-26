@@ -1,5 +1,5 @@
 import {Link} from "react-router-dom";
-import {useContext, useEffect, useState} from "react";
+import {useContext, useEffect} from "react";
 import {UserContext} from "./UserContext";
 
 export default function Header() {
@@ -12,7 +12,7 @@ export default function Header() {
         setUserInfo(userInfo);
       });
     });
-  }, []);
+  }, [setUserInfo]);
 
   function logout() {
     fetch('https://full-stack-blog-roan.vercel.app/logout', {
@@ -31,6 +31,7 @@ export default function Header() {
         {username && (
           <>
             <Link to="/create">Create new post</Link>
+            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a onClick={logout}>Logout</a>
           </>
         )}
