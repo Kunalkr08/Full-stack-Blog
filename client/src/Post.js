@@ -11,7 +11,7 @@ export default function Post({_id,title,summary,cover,createdAt,author}) {
       </div>
       <div className="texts">
         <Link to={`/post/${_id}`}>
-        <h2>{title}</h2>
+        <h2 style={{ fontSize: '1.5rem' }}>{title}</h2>
         </Link>
         <p className="info">
           <a className="author">{author.username}</a>

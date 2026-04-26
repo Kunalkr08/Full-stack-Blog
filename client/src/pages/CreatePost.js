@@ -1,69 +1,68 @@
-
-import 'react-quill/dist/quill.snow.css';
+import "react-quill/dist/quill.snow.css";
 import { useState } from "react";
 import { Navigate } from "react-router-dom";
 import Editor from "../Editor";
-import uploadImage from '../helper/Uploadimage'
+import uploadImage from "../helper/Uploadimage";
 
 export default function CreatePost() {
   const [data, setData] = useState({
     title: "",
     summary: "",
     content: "",
-    Image: ""
+    Image: "",
   });
 
-  const [redirect, setRedirect] = useState(false)
+  const [redirect, setRedirect] = useState(false);
 
   const handleUploadImage = async (e) => {
     const file = e.target.files[0];
     const uploadImageCloudinary = await uploadImage(file);
-  
+
     setData((prev) => ({
       ...prev,
-      Image: uploadImageCloudinary.url
+      Image: uploadImageCloudinary.url,
     }));
-  }
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setData(prev => ({
+    setData((prev) => ({
       ...prev,
       [name]: value,
     }));
   };
 
   const handleEditorChange = (value) => {
-    setData(prev => ({
+    setData((prev) => ({
       ...prev,
       content: value,
     }));
   };
-  
+
   async function createNewPost(ev) {
     ev.preventDefault();
-    const response = await fetch('https://full-stack-blog-roan.vercel.app/post', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
+    const response = await fetch(
+      "https://full-stack-blog-roan.vercel.app/post",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+        credentials: "include",
       },
-      body: JSON.stringify(data),
-      credentials: 'include',
-    });
+    );
     if (response.ok) {
       setRedirect(true);
     }
   }
 
   if (redirect) {
-    return <Navigate to={'/'} />
+    return <Navigate to={"/"} />;
   }
   return (
     <form onSubmit={createNewPost}>
-       <input
-        type="file"
-        onChange={handleUploadImage}
-      />
+      <input type="file" onChange={handleUploadImage} />
       <input
         type="text"
         name="title"
@@ -79,7 +78,7 @@ export default function CreatePost() {
         onChange={handleChange}
       />
       <Editor value={data.content} onChange={handleEditorChange} />
-      <button style={{ marginTop: '5px' }}>Create post</button>
+      <button style={{ marginTop: "5px" }}>Create post</button>
     </form>
   );
 }
