@@ -12,7 +12,7 @@ export default function Header() {
         setUserInfo(userInfo);
       });
     });
-  }, []);
+  }, [setUserInfo]);
 
   function logout() {
     fetch('https://full-stack-blog-roan.vercel.app/logout', {

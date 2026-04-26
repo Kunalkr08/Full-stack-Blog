@@ -21,7 +21,7 @@ export default function PostPage() {
         });
       },
     );
-  }, []);
+  }, [id]);
 
   if (loading) {
     return <Loading />;
